@@ -40,12 +40,12 @@ impl<B: Read> Iterator for ByteLines<B> {
   }
 }
 
-pub trait ReadByteLines<T> {
-  fn byte_lines(self: Self) -> ByteLines<T>;
+pub trait ReadByteLines<B> {
+  fn byte_lines(self: Self) -> ByteLines<B>;
 }
 
-impl<T> ReadByteLines<T> for T {
-  fn byte_lines(self: T) -> ByteLines<T> {
+impl<B> ReadByteLines<B> for B {
+  fn byte_lines(self: B) -> ByteLines<B> {
     ByteLines { buf: self }
   }
 }
