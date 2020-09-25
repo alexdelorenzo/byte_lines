@@ -35,8 +35,8 @@ impl<B: Read> Iterator for ByteLines<B> {
        return None;
     }
 
-    let byte_str = ByteString::new(buf);
-    Some(Ok(byte_str))
+    let line = ByteLine::new(buf);
+    Some(Ok(line))
   }
 }
 
